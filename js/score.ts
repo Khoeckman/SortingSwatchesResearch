@@ -1,9 +1,10 @@
 type RGB = [number, number, number]
 
-export function colorPunishmentScore(colors: RGB[], power = 2.5): number {
-  const n = colors.length
+export function scoreSwatchPath(path: RGB[], power = 2.5): number {
+  const n = path.length
   if (n <= 1) return 0
 
+  // Euclidean distance between two colors
   const dist = (a: RGB, b: RGB) => {
     const dr = a[0] - b[0]
     const dg = a[1] - b[1]
@@ -11,21 +12,32 @@ export function colorPunishmentScore(colors: RGB[], power = 2.5): number {
     return Math.sqrt(dr * dr + dg * dg + db * db)
   }
 
-  const pathPenalty = (arr: RGB[]) => {
-    let sum = 0
+  // Step 1: compute actual path penalty
+  let actualPenalty = 0
 
-    for (let i = 1; i < arr.length; i++) {
-      const d = dist(arr[i - 1], arr[i])
-      sum += Math.pow(d, power)
-    }
-    return sum
+  for (let i = 1; i < n; i++) {
+    actualPenalty += Math.pow(dist(path[i - 1], path[i]), power)
   }
 
-  const worstApprox = 1e8
-  const bestApprox = 1e6
+  // Step 2: compute guaranteed lower bound (closest neighbor sum)
+  let lowerBound = 0
 
-  const actual = pathPenalty(colors)
+  for (let i = 0; i < n; i++) {
+    let minDist = Infinity
 
-  const normalized = (actual - bestApprox) / (worstApprox - bestApprox)
+    for (let j = 0; j < n; j++) {
+      if (i === j) continue
+      const d = dist(path[i], path[j])
+      if (d < minDist) minDist = d
+    }
+    lowerBound += Math.pow(minDist, power)
+  }
+
+  // Step 3: approximate worst-case (max jump every step)
+  const maxStep = Math.sqrt(3 * 255 * 255) // max RGB distance
+  const worstPenalty = Math.pow(maxStep, power) * (n - 1)
+
+  // Step 4: normalize
+  const normalized = (actualPenalty - lowerBound) / (worstPenalty - lowerBound)
   return Math.max(0, Math.min(1, normalized))
 }

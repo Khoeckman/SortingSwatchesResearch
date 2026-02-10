@@ -1,5 +1,5 @@
 import convert from 'color-convert'
-import { colorPunishmentScore } from './score'
+import { scoreSwatchPath } from './score'
 
 type RGB = [r: number, g: number, b: number]
 
@@ -12,7 +12,7 @@ const generateRandomColors = (length: number) =>
     .fill(0)
     .map(() => [~~(sigmoid(Math.random()) * 256), ~~(sigmoid(Math.random()) * 256), ~~(sigmoid(Math.random()) * 256)])
 
-const swatches = generateRandomColors(41)
+const swatches = generateRandomColors(410)
 
 const solutions = [...(document.querySelector('.solutions')!.children as HTMLCollectionOf<HTMLUListElement>)]
 
@@ -337,7 +337,7 @@ solutions.forEach((solution, i) => {
     }
   }
 
-  const score = Math.floor(10 / colorPunishmentScore(swatchesCopy))
+  const score = Math.floor(1 / scoreSwatchPath(swatchesCopy))
   solution.querySelector('.score')!.textContent = String(score)
 
   swatchesCopy.forEach(([r, g, b]) => {
