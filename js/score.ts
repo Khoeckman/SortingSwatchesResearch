@@ -1,6 +1,6 @@
-type RGB = [number, number, number]
+import type { RGB } from 'color-convert'
 
-export function scoreSwatchPath(path: RGB[], power = 2.5): number {
+export function scoreSwatchPath(path: RGB[], power = 1): number {
   const n = path.length
   if (n <= 1) return 0
 

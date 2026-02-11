@@ -1,3 +1,6 @@
+@import './FormValidator.css';
+@import './form.css';
+
 main {
   flex: 1;
   display: flex;
@@ -7,11 +10,11 @@ main {
 }
 
 main > .title {
-  margin-bottom: 2rem;
+  margin-block: 2rem;
 }
 
 main > .title h1 {
-  margin-bottom: 1rem;
+  margin-block: 0 1rem;
 }
 
 main .solutions {
@@ -36,9 +39,13 @@ main .solutions > li:hover {
   border-color: var(--c48);
 }
 
-main .solutions > li:first-child {
+main .solutions > li:nth-child(2) {
   background-color: var(--c24);
   border: 1px solid var(--c48);
+}
+
+main .solutions > li h2 {
+  margin: 0;
 }
 
 main .solutions > li .title {
@@ -49,11 +56,7 @@ main .solutions > li .title {
   margin-bottom: 1rem;
 }
 
-main .solutions > li .title h2 {
-  margin: 0;
-}
-
-main .solutions > li .title .score {
+main .solutions > li .score {
   background-color: var(--c72);
   border-radius: 0.3rem;
   font-weight: bold;
@@ -73,18 +76,24 @@ main .solutions > li ol {
   gap: 2px;
 }
 
+@property --swatch-size {
+  syntax: '<resolution>';
+  inherits: false;
+  initial-value: 2rem;
+}
+
 main .solutions > li ol li {
   display: block;
   border: 0;
   border-radius: 0;
   margin: 0;
   padding: 0;
-  width: 2rem;
-  height: 2rem;
+  width: var(--swatch-size);
+  height: var(--swatch-size);
   transition:
-    border-radius 125ms,
-    box-shadow 125ms,
-    transform 125ms;
+    border-radius 125ms ease-out,
+    box-shadow 125ms ease-out,
+    transform 125ms ease-out;
 }
 
 main .solutions > li ol li:hover {
