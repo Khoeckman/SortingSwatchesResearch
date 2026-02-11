@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: '/ColorSwatchesSortingResearch/',
+  base: '/SortingSwatchesResearch/',
   build: {
     outDir: 'docs',
   },
