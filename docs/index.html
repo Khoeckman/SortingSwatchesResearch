@@ -8,7 +8,7 @@
   <meta name="description"
     content="The goal is to find out what sorting algorithm produces the smoothest and most visually coherent swatch order." />
 
-  <title>Color Swatches Sorting Research</title>
+  <title>Sorting Swatches</title>
   <link rel="icon" href="/ColorSwatchesSortingResearch/assets/favicon-BeQvo0qJ.webp" sizes="192x192" />
 
   <!-- Google Fonts: Montserrat -->
@@ -19,28 +19,73 @@
   <!-- CSS -->
 
   <!-- JS -->
-  <script type="module" crossorigin src="/ColorSwatchesSortingResearch/assets/index-DJqaCOPE.js"></script>
-  <link rel="stylesheet" crossorigin href="/ColorSwatchesSortingResearch/assets/index-COM96j-a.css">
+  <script type="module" crossorigin src="/ColorSwatchesSortingResearch/assets/index-cMu3tmJG.js"></script>
+  <link rel="stylesheet" crossorigin href="/ColorSwatchesSortingResearch/assets/index-BHOK92zm.css">
 </head>
 
 <body>
+  <header>
+    <div class="credits right">
+      <a href="https://kylecv.be">Kyle Hoeckman</a>
+      <div class="project">
+        <span class="name">Kyle Hoeckman</span>
+        <span class="date">February 2026</span>
+      </div>
+      <div class="logo" aria-hidden="true">
+        <img class="shadow" src="data:image/webp;base64,UklGRlYDAABXRUJQVlA4WAoAAAAYAAAAfwAAfwAAQUxQSGYBAAABCcVt20awnJ/3nzhHO0JE/yfAszyXAGz2Px6SZLDrZlPF/mFFr9kSyQKQFJrtW6Zsdt1sqgAmblCa0Wg4kiRZVaZxly33v+b/jfOYoZ+xiZgARm4jKeoePM1SwdIHlgcjIhObsVs9NzUw6jmSD8pA9IOke8ZuH9zzc7huH7miIK087UtCcdw+Mia4gDGJJX37Ko2uoB7ossOJFVX+hU4VQTgNFNCshAPdhPCoQIcP9Jn8bQFRHQH9laAC1DwDpTu4y2qXT2oHJIHfc+v07YsuAF88t3cqZP5HCfoCDvEbTfF3JdpSCvpKDp2ZQSl0+4iI/JAO6d8DkBvQKdx3Qfr3AOTGM/G+s/kealLhK5h+ntWhEtDfIArNgHPoJ04HSiHhkJVPvN8WEtUR0l+JGsD4UndwlwU3fPL2qx2Q9AP/nUUXovj/7rKRU/JX25x8LMlPNuRjT/t7XjDm7EJdCGhDtcLL10sGVlA4IOwAAACwDgCdASqAAIAAPmUgiUMiIQ5f1gARgyJ6W7gwAL8AfoB+gH8AB0U/QD+c/gB+gH59FJYclWkX2J/VIQxC+i0puj2qb+fX/qnzPWM12wkoe57ctvq00dSuyR3tupRb+3Q9LSqGl3RqqZtyV/SNkpgkZuAT/XIOjv3oakOSkwAA+OxnylMc13H5ST7m8pZ7ODT/RzHfqWEAfS3uY/ylMcxtnys4///4bkByv/q2gCE+Vj09NgA4zJD4cDquf/87j//+cYP8iAd8pRoj5wh3bqf//w9UqOwd///8Nx8uLZSL+TRlhYi8lY/9wAAAAEVYSUbWAAAASUkqAAgAAAAGABIBAwABAAAAAQAAABoBBQABAAAAVgAAABsBBQABAAAAXgAAACgBAwABAAAAAgAAADEBAgAQAAAAZgAAAGmHBAABAAAAdgAAAAAAAABgAAAAAQAAAGAAAAABAAAAUGFpbnQuTkVUIDUuMS44AAUAAJAHAAQAAAAwMjMwAaADAAEAAAABAAAAAqAEAAEAAACAAAAAA6AEAAEAAACAAAAABaAEAAEAAAC4AAAAAAAAAAIAAQACAAQAAABSOTgAAgAHAAQAAAAwMTAwAAAAAA==" alt="Shadow effect" />
+        <img src="data:image/webp;base64,UklGRlYDAABXRUJQVlA4WAoAAAAYAAAAfwAAfwAAQUxQSGYBAAABCcVt20awnJ/3nzhHO0JE/yfAszyXAGz2Px6SZLDrZlPF/mFFr9kSyQKQFJrtW6Zsdt1sqgAmblCa0Wg4kiRZVaZxly33v+b/jfOYoZ+xiZgARm4jKeoePM1SwdIHlgcjIhObsVs9NzUw6jmSD8pA9IOke8ZuH9zzc7huH7miIK087UtCcdw+Mia4gDGJJX37Ko2uoB7ossOJFVX+hU4VQTgNFNCshAPdhPCoQIcP9Jn8bQFRHQH9laAC1DwDpTu4y2qXT2oHJIHfc+v07YsuAF88t3cqZP5HCfoCDvEbTfF3JdpSCvpKDp2ZQSl0+4iI/JAO6d8DkBvQKdx3Qfr3AOTGM/G+s/kealLhK5h+ntWhEtDfIArNgHPoJ04HSiHhkJVPvN8WEtUR0l+JGsD4UndwlwU3fPL2qx2Q9AP/nUUXovj/7rKRU/JX25x8LMlPNuRjT/t7XjDm7EJdCGhDtcLL10sGVlA4IOwAAACwDgCdASqAAIAAPmUgiUMiIQ5f1gARgyJ6W7gwAL8AfoB+gH8AB0U/QD+c/gB+gH59FJYclWkX2J/VIQxC+i0puj2qb+fX/qnzPWM12wkoe57ctvq00dSuyR3tupRb+3Q9LSqGl3RqqZtyV/SNkpgkZuAT/XIOjv3oakOSkwAA+OxnylMc13H5ST7m8pZ7ODT/RzHfqWEAfS3uY/ylMcxtnys4///4bkByv/q2gCE+Vj09NgA4zJD4cDquf/87j//+cYP8iAd8pRoj5wh3bqf//w9UqOwd///8Nx8uLZSL+TRlhYi8lY/9wAAAAEVYSUbWAAAASUkqAAgAAAAGABIBAwABAAAAAQAAABoBBQABAAAAVgAAABsBBQABAAAAXgAAACgBAwABAAAAAgAAADEBAgAQAAAAZgAAAGmHBAABAAAAdgAAAAAAAABgAAAAAQAAAGAAAAABAAAAUGFpbnQuTkVUIDUuMS44AAUAAJAHAAQAAAAwMjMwAaADAAEAAAABAAAAAqAEAAEAAACAAAAAA6AEAAEAAACAAAAABaAEAAEAAAC4AAAAAAAAAAIAAQACAAQAAABSOTgAAgAHAAQAAAAwMTAwAAAAAA==" alt="Kyle Hoeckman Logo" />
+      </div>
+    </div>
+  </header>
+
   <main>
     <div class="title">
-      <h1>Color Swatches Sorting Research</h1>
+      <h1>Sorting Swatches Research</h1>
       <span>The goal is to find out what sorting algorithm produces the <strong>smoothest</strong> and most
         <strong>visually coherent</strong> swatch order.</span>
     </div>
 
     <ul class="solutions">
+      <li class="separator-after not-solution">
+        <form class="form-validator" action="javascript:void(0)" utocapitalize="false" autocomplete="off"
+          autocorrect="false" novalidate>
+          <h2>Settings</h2>
+
+          <div class="error-summary">
+            <ul></ul>
+          </div>
+
+          <div class="fields inline">
+            <label>
+              Amount of Swatches
+              <input id="settings-swatch-amount" type="number" min="1" max="999" value="41">
+            </label>
+
+            <label>
+              <span>Swatch Size <span style="font-weight: lighter;">(px)</span></span>
+              <input id="settings-swatch-size" type="number" min="1" max="3200" value="32">
+            </label>
+          </div>
+
+          <div class="actions">
+            <button type="submit">Apply</button>
+            <button name="settings-update" type="button">Update Size</button>
+            <button name="settings-reset" type="button" class="error">Reset</button>
+          </div>
+        </form>
+      </li>
+
       <li class="separator-after">
         <span class="title">
-          <h2>Generated Colors</h2>
+          <h2>Swatches</h2>
           <span class="score" title="Score">0</span>
         </span>
         <p>
           Each box contains a list of the <strong>same colors</strong>.<br>
           The number next to each title is the <strong>score</strong> given to the <strong>solution</strong>.<br>
-          <strong>Note</strong> that the scoring algorithm itself is not perfect.
+          <strong>Note</strong> that the scoring algorithm itself is not perfect. A score of <strong>Infinity</strong>
+          means it is with
+          absolute certainty the <strong>best</strong> possible solution.
         </p>
         <ol></ol>
       </li>
@@ -109,32 +154,54 @@
 
       <li>
         <span class="title">
-          <h2>Nearest neighbor + 2-opt</h2>
+          <h2>Hue path + 2-opt</h2>
           <span class="score" title="Score">0</span>
         </span>
-        <p>TSP</p>
+        <p><code>hueA - hueB &nbsp; &nbsp; RGB dist</code></p>
         <ol></ol>
       </li>
 
       <li>
         <span class="title">
-          <h2>Nearest neighbor + 12-start NN + 2-opt</h2>
+          <h2>Nearest neighbor path</h2>
           <span class="score" title="Score">0</span>
         </span>
-        <p>TSP</p>
+        <p><code>RGB dist</code></p>
         <ol></ol>
       </li>
 
       <li>
         <span class="title">
-          <h2>LAB distances + 12-start NN + 2-opt</h2>
+          <h2>Nearest neighbor path + 2-opt</h2>
           <span class="score" title="Score">0</span>
         </span>
-        <p>Gets scored lower because LAB is for human perception.</p>
+        <p><code>RGB dist</code></p>
+        <ol></ol>
+      </li>
+
+      <li>
+        <span class="title">
+          <h2>Nearest neighbor path + best-start</h2>
+          <span class="score" title="Score">0</span>
+        </span>
+        <p><code>RGB dist</code></p>
+        <ol></ol>
+      </li>
+
+      <li>
+        <span class="title">
+          <h2>Nearest neighbor path + 2-opt + best-start</h2>
+          <span class="score" title="Score">0</span>
+        </span>
+        <p><code>RGB dist</code></p>
         <ol></ol>
       </li>
     </ul>
   </main>
+
+  <footer>
+    <p>Copyright © 2026 Kyle Hoeckman, All rights reserved.</p>
+  </footer>
 </body>
 
 </html>

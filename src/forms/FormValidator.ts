@@ -81,9 +81,10 @@ export default class FormValidator {
         field.classList.add('invalid')
         field.setAttribute('aria-invalid', 'true')
 
-        if (!('labels' in field && Array.isArray(field.labels))) return
+        if (!('labels' in field && field.labels instanceof NodeList)) return
 
-        field.labels[0].insertBefore(errorElement, field.labels[0].lastElementChild)
+        const firstLabel = field.labels[0] as HTMLLabelElement
+        firstLabel.insertBefore(errorElement, firstLabel.lastElementChild)
       } else if (field instanceof RadioNodeList) {
         field.forEach((el) => {
           el.classList.add('invalid')

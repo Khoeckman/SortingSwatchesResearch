@@ -79,7 +79,7 @@ main .solutions > li ol {
 @property --swatch-size {
   syntax: '<resolution>';
   inherits: false;
-  initial-value: 2rem;
+  initial-value: 30px;
 }
 
 main .solutions > li ol li {

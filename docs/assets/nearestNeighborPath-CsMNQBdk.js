@@ -1,0 +1,1 @@
+(function(){"use strict";function o(i,l){return i.splice(l,1)[0]}self.onmessage=function(i){const{N:l,distMatrix:r,startIndex:p=0}=i.data,t=Array(l).fill(0).map((a,e)=>e),n=[o(t,p)];for(;t.length;){const a=n[n.length-1];let e=0,c=1/0;for(let s=0;s<t.length;s++){const f=r[a][t[s]];f<c&&(c=f,e=s)}n.push(o(t,e))}self.postMessage(n)}})();

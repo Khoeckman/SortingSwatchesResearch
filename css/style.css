@@ -14,7 +14,7 @@
   --c72: hsl(var(--hue), 18%, 72%);
   --fg: hsl(var(--hue), 18%, 96%);
 
-  --swatch-size: 2rem;
+  --swatch-size: 30px;
 }
 
 html {

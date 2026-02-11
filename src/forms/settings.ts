@@ -69,11 +69,11 @@ resetBtn.addEventListener('click', () => {
 settingsForm.addValidator({
   name: 'settings-swatch-amount',
   method: (field) => +field.value >= 1 && +field.value <= 999,
-  message: 'Amount of swatches should be between 1 and 999',
+  message: 'Should be between 1 and 999',
 })
 
 settingsForm.addValidator({
   name: 'settings-swatch-size',
   method: (field) => +field.value >= 1 && +field.value <= 3200,
-  message: 'Size of swatches should be between 1 and 3200 pixels',
+  message: 'Should be between 1 and 3200 pixels',
 })
