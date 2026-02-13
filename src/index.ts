@@ -180,6 +180,29 @@ export function populateSolutions(_swatches: RGB[]) {
         swatches = tsp.getValuesFromPath(bestPath)
         break
       }
+      case 14: {
+        if (N <= 1) break
+
+        const tsp = new TravelingSalesmanSolver(swatches, 3, TravelingSalesmanSolver.distRGB)
+
+        let bestPath: number[] = []
+        let bestScore = Infinity
+
+        // Start from every swatch (max 120)
+        for (let start = 0; start < Math.min(N, 120); start++) {
+          await tsp.nearestNeighborPath(start)
+          await tsp.twoOpt()
+
+          const score = tsp.totalDist()
+
+          if (score < bestScore) {
+            bestScore = score
+            bestPath = tsp.path
+          }
+        }
+        swatches = tsp.getValuesFromPath(bestPath)
+        break
+      }
     }
 
     populateSolution(solution, swatches)

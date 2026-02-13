@@ -9,7 +9,7 @@
     content="The goal is to find out what sorting algorithm produces the smoothest and most visually coherent swatch order." />
 
   <title>Sorting Swatches</title>
-  <link rel="icon" href="/ColorSwatchesSortingResearch/assets/favicon-BeQvo0qJ.webp" sizes="192x192" />
+  <link rel="icon" href="/SortingSwatchesResearch/assets/favicon-BeQvo0qJ.webp" sizes="192x192" />
 
   <!-- Google Fonts: Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,12 +19,12 @@
   <!-- CSS -->
 
   <!-- JS -->
-  <script type="module" crossorigin src="/ColorSwatchesSortingResearch/assets/index-cMu3tmJG.js"></script>
-  <link rel="stylesheet" crossorigin href="/ColorSwatchesSortingResearch/assets/index-BHOK92zm.css">
+  <script type="module" crossorigin src="/SortingSwatchesResearch/assets/index-Bs6mYX_S.js"></script>
+  <link rel="stylesheet" crossorigin href="/SortingSwatchesResearch/assets/index-BHOK92zm.css">
 </head>
 
 <body>
-  <header>
+  <!-- <header>
     <div class="credits right">
       <a href="https://kylecv.be">Kyle Hoeckman</a>
       <div class="project">
@@ -32,11 +32,11 @@
         <span class="date">February 2026</span>
       </div>
       <div class="logo" aria-hidden="true">
-        <img class="shadow" src="data:image/webp;base64,UklGRlYDAABXRUJQVlA4WAoAAAAYAAAAfwAAfwAAQUxQSGYBAAABCcVt20awnJ/3nzhHO0JE/yfAszyXAGz2Px6SZLDrZlPF/mFFr9kSyQKQFJrtW6Zsdt1sqgAmblCa0Wg4kiRZVaZxly33v+b/jfOYoZ+xiZgARm4jKeoePM1SwdIHlgcjIhObsVs9NzUw6jmSD8pA9IOke8ZuH9zzc7huH7miIK087UtCcdw+Mia4gDGJJX37Ko2uoB7ossOJFVX+hU4VQTgNFNCshAPdhPCoQIcP9Jn8bQFRHQH9laAC1DwDpTu4y2qXT2oHJIHfc+v07YsuAF88t3cqZP5HCfoCDvEbTfF3JdpSCvpKDp2ZQSl0+4iI/JAO6d8DkBvQKdx3Qfr3AOTGM/G+s/kealLhK5h+ntWhEtDfIArNgHPoJ04HSiHhkJVPvN8WEtUR0l+JGsD4UndwlwU3fPL2qx2Q9AP/nUUXovj/7rKRU/JX25x8LMlPNuRjT/t7XjDm7EJdCGhDtcLL10sGVlA4IOwAAACwDgCdASqAAIAAPmUgiUMiIQ5f1gARgyJ6W7gwAL8AfoB+gH8AB0U/QD+c/gB+gH59FJYclWkX2J/VIQxC+i0puj2qb+fX/qnzPWM12wkoe57ctvq00dSuyR3tupRb+3Q9LSqGl3RqqZtyV/SNkpgkZuAT/XIOjv3oakOSkwAA+OxnylMc13H5ST7m8pZ7ODT/RzHfqWEAfS3uY/ylMcxtnys4///4bkByv/q2gCE+Vj09NgA4zJD4cDquf/87j//+cYP8iAd8pRoj5wh3bqf//w9UqOwd///8Nx8uLZSL+TRlhYi8lY/9wAAAAEVYSUbWAAAASUkqAAgAAAAGABIBAwABAAAAAQAAABoBBQABAAAAVgAAABsBBQABAAAAXgAAACgBAwABAAAAAgAAADEBAgAQAAAAZgAAAGmHBAABAAAAdgAAAAAAAABgAAAAAQAAAGAAAAABAAAAUGFpbnQuTkVUIDUuMS44AAUAAJAHAAQAAAAwMjMwAaADAAEAAAABAAAAAqAEAAEAAACAAAAAA6AEAAEAAACAAAAABaAEAAEAAAC4AAAAAAAAAAIAAQACAAQAAABSOTgAAgAHAAQAAAAwMTAwAAAAAA==" alt="Shadow effect" />
-        <img src="data:image/webp;base64,UklGRlYDAABXRUJQVlA4WAoAAAAYAAAAfwAAfwAAQUxQSGYBAAABCcVt20awnJ/3nzhHO0JE/yfAszyXAGz2Px6SZLDrZlPF/mFFr9kSyQKQFJrtW6Zsdt1sqgAmblCa0Wg4kiRZVaZxly33v+b/jfOYoZ+xiZgARm4jKeoePM1SwdIHlgcjIhObsVs9NzUw6jmSD8pA9IOke8ZuH9zzc7huH7miIK087UtCcdw+Mia4gDGJJX37Ko2uoB7ossOJFVX+hU4VQTgNFNCshAPdhPCoQIcP9Jn8bQFRHQH9laAC1DwDpTu4y2qXT2oHJIHfc+v07YsuAF88t3cqZP5HCfoCDvEbTfF3JdpSCvpKDp2ZQSl0+4iI/JAO6d8DkBvQKdx3Qfr3AOTGM/G+s/kealLhK5h+ntWhEtDfIArNgHPoJ04HSiHhkJVPvN8WEtUR0l+JGsD4UndwlwU3fPL2qx2Q9AP/nUUXovj/7rKRU/JX25x8LMlPNuRjT/t7XjDm7EJdCGhDtcLL10sGVlA4IOwAAACwDgCdASqAAIAAPmUgiUMiIQ5f1gARgyJ6W7gwAL8AfoB+gH8AB0U/QD+c/gB+gH59FJYclWkX2J/VIQxC+i0puj2qb+fX/qnzPWM12wkoe57ctvq00dSuyR3tupRb+3Q9LSqGl3RqqZtyV/SNkpgkZuAT/XIOjv3oakOSkwAA+OxnylMc13H5ST7m8pZ7ODT/RzHfqWEAfS3uY/ylMcxtnys4///4bkByv/q2gCE+Vj09NgA4zJD4cDquf/87j//+cYP8iAd8pRoj5wh3bqf//w9UqOwd///8Nx8uLZSL+TRlhYi8lY/9wAAAAEVYSUbWAAAASUkqAAgAAAAGABIBAwABAAAAAQAAABoBBQABAAAAVgAAABsBBQABAAAAXgAAACgBAwABAAAAAgAAADEBAgAQAAAAZgAAAGmHBAABAAAAdgAAAAAAAABgAAAAAQAAAGAAAAABAAAAUGFpbnQuTkVUIDUuMS44AAUAAJAHAAQAAAAwMjMwAaADAAEAAAABAAAAAqAEAAEAAACAAAAAA6AEAAEAAACAAAAABaAEAAEAAAC4AAAAAAAAAAIAAQACAAQAAABSOTgAAgAHAAQAAAAwMTAwAAAAAA==" alt="Kyle Hoeckman Logo" />
+        <img class="shadow" src="img/KHKH.webp" alt="Shadow effect" />
+        <img src="img/KHKH.webp" alt="Kyle Hoeckman Logo" />
       </div>
     </div>
-  </header>
+  </header> -->
 
   <main>
     <div class="title">
@@ -47,8 +47,8 @@
 
     <ul class="solutions">
       <li class="separator-after not-solution">
-        <form class="form-validator" action="javascript:void(0)" utocapitalize="false" autocomplete="off"
-          autocorrect="false" novalidate>
+        <form class="form-validator" action="javascript:void(0)" autocapitalize="off" autocomplete="off"
+          autocorrect="off" novalidate>
           <h2>Settings</h2>
 
           <div class="error-summary">
@@ -76,10 +76,10 @@
       </li>
 
       <li class="separator-after">
-        <span class="title">
+        <div class="title">
           <h2>Swatches</h2>
           <span class="score" title="Score">0</span>
-        </span>
+        </div>
         <p>
           Each box contains a list of the <strong>same colors</strong>.<br>
           The number next to each title is the <strong>score</strong> given to the <strong>solution</strong>.<br>
@@ -91,108 +91,117 @@
       </li>
 
       <li>
-        <span class="title">
+        <div class="title">
           <h2>Hue</h2>
           <span class="score" title="Score">0</span>
-        </span>
+        </div>
         <p><code>hueA - hueB</code></p>
         <ol></ol>
       </li>
       <li>
-        <span class="title">
+        <div class="title">
           <h2>Saturation</h2>
           <span class="score" title="Score">0</span>
-        </span>
+        </div>
         <p><code>satA - satB</code></p>
         <ol></ol>
       </li>
 
       <li>
-        <span class="title">
+        <div class="title">
           <h2>Lightness</h2>
           <span class="score" title="Score">0</span>
-        </span>
+        </div>
         <p><code>lightA - lightB</code></p>
         <ol></ol>
       </li>
 
       <li class="separator-after">
-        <span class="title">
+        <div class="title">
           <h2>Value</h2>
           <span class="score" title="Score">0</span>
-        </span>
+        </div>
         <p><code>valA - valB</code></p>
         <ol></ol>
       </li>
 
       <li>
-        <span class="title">
+        <div class="title">
           <h2>Hue & Saturation</h2>
           <span class="score" title="Score">0</span>
-        </span>
+        </div>
         <p><code>+(satA > 50) - +(satB > 50) || hueA - hueB</code></p>
         <ol></ol>
       </li>
 
       <li>
-        <span class="title">
+        <div class="title">
           <h2>Hue & Lightness</h2>
           <span class="score" title="Score">0</span>
-        </span>
+        </div>
         <p><code>+(lightA > 50) - +(lightB > 50) || hueA - hueB</code></p>
         <ol></ol>
       </li>
 
       <li class="separator-after">
-        <span class="title">
+        <div class="title">
           <h2>Hue & Value</h2>
           <span class="score" title="Score">0</span>
-        </span>
+        </div>
         <p><code>+(valA > 50) - +(valB > 50) || hueA - hueB</code></p>
         <ol></ol>
       </li>
 
       <li>
-        <span class="title">
+        <div class="title">
           <h2>Hue path + 2-opt</h2>
           <span class="score" title="Score">0</span>
-        </span>
-        <p><code>hueA - hueB &nbsp; &nbsp; RGB dist</code></p>
+        </div>
+        <p><code>hueA - hueB &nbsp; &nbsp; LAB dist</code></p>
         <ol></ol>
       </li>
 
       <li>
-        <span class="title">
+        <div class="title">
           <h2>Nearest neighbor path</h2>
           <span class="score" title="Score">0</span>
-        </span>
-        <p><code>RGB dist</code></p>
+        </div>
+        <p><code>LAB dist</code></p>
         <ol></ol>
       </li>
 
       <li>
-        <span class="title">
+        <div class="title">
           <h2>Nearest neighbor path + 2-opt</h2>
           <span class="score" title="Score">0</span>
-        </span>
-        <p><code>RGB dist</code></p>
+        </div>
+        <p><code>LAB dist</code></p>
         <ol></ol>
       </li>
 
       <li>
-        <span class="title">
+        <div class="title">
           <h2>Nearest neighbor path + best-start</h2>
           <span class="score" title="Score">0</span>
-        </span>
-        <p><code>RGB dist</code></p>
+        </div>
+        <p><code>LAB dist</code></p>
         <ol></ol>
       </li>
 
       <li>
-        <span class="title">
-          <h2>Nearest neighbor path + 2-opt + best-start</h2>
+        <div class="title">
+          <h2>[LAB] Nearest neighbor path + 2-opt + best-start</h2>
           <span class="score" title="Score">0</span>
-        </span>
+        </div>
+        <p><code>LAB dist</code></p>
+        <ol></ol>
+      </li>
+
+      <li>
+        <div class="title">
+          <h2>[RGB] Nearest neighbor path + 2-opt + best-start</h2>
+          <span class="score" title="Score">0</span>
+        </div>
         <p><code>RGB dist</code></p>
         <ol></ol>
       </li>

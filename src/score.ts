@@ -1,4 +1,6 @@
-import type { RGB } from 'color-convert'
+import convert from 'color-convert'
+import type { RGB, LAB } from 'color-convert'
+import { getDeltaE_CIEDE2000 } from 'deltae-js'
 
 export function scoreSwatchPath(path: RGB[], power = 1): number {
   const n = path.length
@@ -6,10 +8,9 @@ export function scoreSwatchPath(path: RGB[], power = 1): number {
 
   // Euclidean distance between two colors
   const dist = (a: RGB, b: RGB) => {
-    const dr = a[0] - b[0]
-    const dg = a[1] - b[1]
-    const db = a[2] - b[2]
-    return Math.sqrt(dr * dr + dg * dg + db * db)
+    const x1: LAB = convert.rgb.lab(a)
+    const x2: LAB = convert.rgb.lab(b)
+    return getDeltaE_CIEDE2000(x1, x2)
   }
 
   // Step 1: compute actual path penalty
@@ -34,7 +35,7 @@ export function scoreSwatchPath(path: RGB[], power = 1): number {
   }
 
   // Step 3: approximate worst-case (max jump every step)
-  const maxStep = Math.sqrt(3 * 255 * 255) // max RGB distance
+  const maxStep = 128 // max CIEDE2000 distance
   const worstPenalty = Math.pow(maxStep, power) * (n - 1)
 
   // Step 4: normalize

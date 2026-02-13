@@ -1,4 +1,6 @@
-import type { RGB } from 'color-convert'
+import convert from 'color-convert'
+import type { RGB, LAB } from 'color-convert'
+import { getDeltaE_CIEDE2000 } from 'deltae-js'
 
 export default class TravelingSalesmanSolver {
   values: RGB[]
@@ -6,19 +8,25 @@ export default class TravelingSalesmanSolver {
   distMatrix: number[][]
   path: number[]
 
-  constructor(values: RGB[], power = 1) {
+  constructor(values: RGB[], power = 1, distFn = TravelingSalesmanSolver.distLAB) {
     this.values = values.slice()
     this.N = this.values.length
     this.path = this.values.map((_, i) => i)
-    this.distMatrix = this.createDistMatrix(power)
+    this.distMatrix = this.createDistMatrix(power, distFn)
   }
 
-  private static dist(a: RGB, b: RGB) {
+  static distRGB(a: RGB, b: RGB) {
     const dr = a[0] - b[0]
     const dg = a[1] - b[1]
     const db = a[2] - b[2]
 
     return dr * dr + dg * dg + db * db
+  }
+
+  static distLAB(a: RGB, b: RGB) {
+    const x1: LAB = convert.rgb.lab(a)
+    const x2: LAB = convert.rgb.lab(b)
+    return getDeltaE_CIEDE2000(x1, x2)
   }
 
   private static async awaitWorker<T>(worker: Worker): Promise<T> {
@@ -40,7 +48,7 @@ export default class TravelingSalesmanSolver {
     return result
   }
 
-  createDistMatrix(power = 1) {
+  createDistMatrix(power: number, distFn: (a: RGB, b: RGB) => number): number[][] {
     const values = this.values
     const N = this.N
 
@@ -50,7 +58,7 @@ export default class TravelingSalesmanSolver {
 
     for (let i = 0; i < N; i++) {
       for (let j = i + 1; j < N; j++) {
-        const d = Math.pow(TravelingSalesmanSolver.dist(values[i], values[j]), power) // 8 bit
+        const d = Math.pow(distFn(values[i], values[j]), power) // 8 bit
         distMatrix[i][j] = d
         distMatrix[j][i] = d
       }

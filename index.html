@@ -27,7 +27,7 @@
 </head>
 
 <body>
-  <header>
+  <!-- <header>
     <div class="credits right">
       <a href="https://kylecv.be">Kyle Hoeckman</a>
       <div class="project">
@@ -39,7 +39,7 @@
         <img src="img/KHKH.webp" alt="Kyle Hoeckman Logo" />
       </div>
     </div>
-  </header>
+  </header> -->
 
   <main>
     <div class="title">
@@ -50,8 +50,8 @@
 
     <ul class="solutions">
       <li class="separator-after not-solution">
-        <form class="form-validator" action="javascript:void(0)" utocapitalize="false" autocomplete="off"
-          autocorrect="false" novalidate>
+        <form class="form-validator" action="javascript:void(0)" autocapitalize="off" autocomplete="off"
+          autocorrect="off" novalidate>
           <h2>Settings</h2>
 
           <div class="error-summary">
@@ -79,10 +79,10 @@
       </li>
 
       <li class="separator-after">
-        <span class="title">
+        <div class="title">
           <h2>Swatches</h2>
           <span class="score" title="Score">0</span>
-        </span>
+        </div>
         <p>
           Each box contains a list of the <strong>same colors</strong>.<br>
           The number next to each title is the <strong>score</strong> given to the <strong>solution</strong>.<br>
@@ -94,108 +94,117 @@
       </li>
 
       <li>
-        <span class="title">
+        <div class="title">
           <h2>Hue</h2>
           <span class="score" title="Score">0</span>
-        </span>
+        </div>
         <p><code>hueA - hueB</code></p>
         <ol></ol>
       </li>
       <li>
-        <span class="title">
+        <div class="title">
           <h2>Saturation</h2>
           <span class="score" title="Score">0</span>
-        </span>
+        </div>
         <p><code>satA - satB</code></p>
         <ol></ol>
       </li>
 
       <li>
-        <span class="title">
+        <div class="title">
           <h2>Lightness</h2>
           <span class="score" title="Score">0</span>
-        </span>
+        </div>
         <p><code>lightA - lightB</code></p>
         <ol></ol>
       </li>
 
       <li class="separator-after">
-        <span class="title">
+        <div class="title">
           <h2>Value</h2>
           <span class="score" title="Score">0</span>
-        </span>
+        </div>
         <p><code>valA - valB</code></p>
         <ol></ol>
       </li>
 
       <li>
-        <span class="title">
+        <div class="title">
           <h2>Hue & Saturation</h2>
           <span class="score" title="Score">0</span>
-        </span>
+        </div>
         <p><code>+(satA > 50) - +(satB > 50) || hueA - hueB</code></p>
         <ol></ol>
       </li>
 
       <li>
-        <span class="title">
+        <div class="title">
           <h2>Hue & Lightness</h2>
           <span class="score" title="Score">0</span>
-        </span>
+        </div>
         <p><code>+(lightA > 50) - +(lightB > 50) || hueA - hueB</code></p>
         <ol></ol>
       </li>
 
       <li class="separator-after">
-        <span class="title">
+        <div class="title">
           <h2>Hue & Value</h2>
           <span class="score" title="Score">0</span>
-        </span>
+        </div>
         <p><code>+(valA > 50) - +(valB > 50) || hueA - hueB</code></p>
         <ol></ol>
       </li>
 
       <li>
-        <span class="title">
+        <div class="title">
           <h2>Hue path + 2-opt</h2>
           <span class="score" title="Score">0</span>
-        </span>
-        <p><code>hueA - hueB &nbsp; &nbsp; RGB dist</code></p>
+        </div>
+        <p><code>hueA - hueB &nbsp; &nbsp; LAB dist</code></p>
         <ol></ol>
       </li>
 
       <li>
-        <span class="title">
+        <div class="title">
           <h2>Nearest neighbor path</h2>
           <span class="score" title="Score">0</span>
-        </span>
-        <p><code>RGB dist</code></p>
+        </div>
+        <p><code>LAB dist</code></p>
         <ol></ol>
       </li>
 
       <li>
-        <span class="title">
+        <div class="title">
           <h2>Nearest neighbor path + 2-opt</h2>
           <span class="score" title="Score">0</span>
-        </span>
-        <p><code>RGB dist</code></p>
+        </div>
+        <p><code>LAB dist</code></p>
         <ol></ol>
       </li>
 
       <li>
-        <span class="title">
+        <div class="title">
           <h2>Nearest neighbor path + best-start</h2>
           <span class="score" title="Score">0</span>
-        </span>
-        <p><code>RGB dist</code></p>
+        </div>
+        <p><code>LAB dist</code></p>
         <ol></ol>
       </li>
 
       <li>
-        <span class="title">
-          <h2>Nearest neighbor path + 2-opt + best-start</h2>
+        <div class="title">
+          <h2>[LAB] Nearest neighbor path + 2-opt + best-start</h2>
           <span class="score" title="Score">0</span>
-        </span>
+        </div>
+        <p><code>LAB dist</code></p>
+        <ol></ol>
+      </li>
+
+      <li>
+        <div class="title">
+          <h2>[RGB] Nearest neighbor path + 2-opt + best-start</h2>
+          <span class="score" title="Score">0</span>
+        </div>
         <p><code>RGB dist</code></p>
         <ol></ol>
       </li>
