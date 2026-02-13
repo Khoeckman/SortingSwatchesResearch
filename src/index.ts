@@ -1,5 +1,5 @@
 import convert from 'color-convert'
-import TravelingSalesmanSolver from './TravelingSalemanSolver'
+import TravelingSalesmanSolver from './TravelingSalesmanSolver'
 import { scoreSwatchPath } from './score'
 import type { RGB } from 'color-convert'
 
@@ -129,15 +129,6 @@ export function populateSolutions(_swatches: RGB[]) {
         if (N <= 1) break
 
         const tsp = new TravelingSalesmanSolver(swatches, 3)
-        await tsp.nearestNeighborPath()
-        await tsp.twoOpt()
-        swatches = tsp.getValuesFromPath()
-        break
-      }
-      case 12: {
-        if (N <= 1) break
-
-        const tsp = new TravelingSalesmanSolver(swatches, 3)
 
         let bestPath: number[] = []
         let bestScore = Infinity
@@ -155,6 +146,15 @@ export function populateSolutions(_swatches: RGB[]) {
         }
 
         swatches = tsp.getValuesFromPath(bestPath)
+        break
+      }
+      case 12: {
+        if (N <= 1) break
+
+        const tsp = new TravelingSalesmanSolver(swatches, 3)
+        await tsp.nearestNeighborPath()
+        await tsp.twoOpt()
+        swatches = tsp.getValuesFromPath()
         break
       }
       case 13: {
